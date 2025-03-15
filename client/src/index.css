@@ -148,6 +148,7 @@
 body {
   background-color: black;
   font-family: "PlutoSans", sans-serif;
+  width: 100%;
 }
 
 #logo.logo {

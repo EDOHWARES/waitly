@@ -1,15 +1,14 @@
 
-import './App.css';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 
 function App() {
 
   return (
-    <>
-    <Header />
-    <Hero />
-    </>
+    <section className='w-full h-full'>
+      <Header />
+      <Hero />
+    </section>
   )
 }
 
