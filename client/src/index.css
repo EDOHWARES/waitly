@@ -1,1 +1,196 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "CabinetGrotesk-Bold";
+  src: url("./assets/fonts/CabinetGrotesk-Bold.woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraBold";
+  src: url("./assets/fonts/CabinetGrotesk-Extrabold.woff2");
+  font-weight: extrabold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Regular";
+  src: url("./assets/fonts/CabinetGrotesk-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Medium";
+  src: url("./assets/fonts/CabinetGrotesk-Medium.woff2");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-SemiBold";
+  src: url("./assets/fonts/CabinetGrotesk-SemiBold.woff2");
+  font-weight: semibold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Light";
+  src: url("./assets/fonts/CabinetGrotesk-Light.woff2");
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraLight";
+  src: url("./assets/fonts/CabinetGrotesk-ExtraLight.woff2");
+  font-weight: extralight;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Black";
+  src: url("./assets/fonts/CabinetGrotesk-Black.woff2");
+  font-weight: black;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Thin";
+  src: url("./assets/fonts/CabinetGrotesk-Thin.woff2");
+  font-weight: thin;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraThin";
+  src: url("./assets/fonts/CabinetGrotesk-ExtraThin.woff2");
+  font-weight: extrathin;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-Italic";
+  src: url("./assets/fonts/CabinetGrotesk-Italic.woff2");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-BoldItalic";
+  src: url("./assets/fonts/CabinetGrotesk-BoldItalic.woff2");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-MediumItalic";
+  src: url("./assets/fonts/CabinetGrotesk-MediumItalic.woff2");
+  font-weight: medium;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-SemiBoldItalic";
+  src: url("./assets/fonts/CabinetGrotesk-SemiBoldItalic.woff2");
+  font-weight: semibold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-LightItalic";
+  src: url("./assets/fonts/CabinetGrotesk-LightItalic.woff2");
+  font-weight: light;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraLightItalic";
+  src: url("./assets/fonts/CabinetGrotesk-ExtraLightItalic.woff2");
+  font-weight: extralight;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraBoldItalic";
+  src: url("./assets/fonts/CabinetGrotesk-ExtraBoldItalic.woff2");
+  font-weight: extrabold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-BlackItalic";
+  src: url("./assets/fonts/CabinetGrotesk-BlackItalic.woff2");
+  font-weight: black;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ThinItalic";
+  src: url("./assets/fonts/CabinetGrotesk-ThinItalic.woff2");
+  font-weight: thin;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "CabinetGrotesk-ExtraThinItalic";
+  src: url("./assets/fonts/CabinetGrotesk-ExtraThinItalic.woff2");
+  font-weight: extrathin;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PlutoSans";
+  src: url("./assets/fonts/PlusJakartaSans[wght].ttf");
+}
+
+body {
+  background-color: black;
+  font-family: "PlutoSans", sans-serif;
+}
+
+#logo.logo {
+  font-family: "PlutoSans", sans-serif;
+  font-weight: extrabold;
+}
+
+#hero-headline {
+  font-family: "CabinetGrotesk-ExtraBold", sans-serif;
+}
+
+.cabinet {
+  font-family: "CabinetGrotesk-Regular", sans-serif;
+}
+
+.cabinet-extrabold {
+  font-family: "CabinetGrotesk-ExtraBold", sans-serif;
+}
+
+@keyframes waitly-effect {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+.animate-waitly {
+  animation: waitly-effect 2s infinite ease-in-out;
+}
+
+@keyframes text-waitly {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.animate-text-waitly {
+  animation: text-waitly 2s infinite ease-in-out;
+}
