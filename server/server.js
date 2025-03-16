@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import mongoose from "mongoose";
 import connectDB from "./config/db.js";
+import authRoutes from "./routers/auth.js";
 
 dotenv.config();
 
@@ -18,6 +18,8 @@ app.get("/", (req, res) => {
   res.send("Waitly Server is Running 🚀");
 });
 
+app.use("/api/auth", authRoutes);
+
 // Connect to MongoDB
 connectDB();
 // mongoose
@@ -26,5 +28,5 @@ connectDB();
 //   .catch((err) => console.log("MongoDB Connection Error ❌", err));
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`server started on http://localhost:${PORT}`);
 });
