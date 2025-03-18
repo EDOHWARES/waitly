@@ -32,12 +32,14 @@ const SignIn = () => {
         {/* Input Fields */}
         <input
           type="email"
+          autoComplete="off"
           placeholder="E-mail"
           className="w-full p-3 mb-3 rounded-lg bg-gray-900 text-white outline-none"
         />
         <input
           type="password"
           placeholder="Password"
+          autoComplete="off"
           className="w-full p-3 mb-4 rounded-lg bg-gray-900 text-white outline-none"
         />
 
@@ -48,11 +50,8 @@ const SignIn = () => {
 
         {/* Links */}
         <p className="text-center text-gray-400 text-sm mt-4">
-          don’t have an account?{" "}
-          <span className="text-white  cursor-pointer">
-            {" "}
-            Create an account
-          </span>
+          Don’t have an account?{" "}
+          <span className="text-white  cursor-pointer"> Create an account</span>
         </p>
         <p className="text-center text-[#CE9FFC] f cursor-pointer mt-3">
           Forgot password?

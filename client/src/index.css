@@ -151,6 +151,10 @@ body {
   width: 100%;
 }
 
+button {
+  cursor: pointer;
+}
+
 #logo.logo {
   font-family: "PlutoSans", sans-serif;
   font-weight: extrabold;

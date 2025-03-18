@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WaitlyLogo from "../WaitlyLogo/WaitlyLogo";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +29,11 @@ const Header = () => {
 
         {/* Buttons */}
         <div className="hidden md:flex items-center space-x-6">
-          <button className="bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] h-[58px] w-[180px] rounded-[5px]">
-            Create Now
-          </button>
+          <Link to={'/signup'}>
+            <button className="bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] h-[58px] w-[180px] rounded-[5px]">
+              Create Now
+            </button>
+          </Link>
           <button className="h-[58px] w-[180px] border-2 border-[#7367F0] rounded-[5px]">
             Get A Quote
           </button>
