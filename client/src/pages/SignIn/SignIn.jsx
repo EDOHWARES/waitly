@@ -5,6 +5,7 @@ import vector4 from "../../assets/images/vector4.png";
 import { Link, useNavigate } from "react-router-dom";
 import axiosInstance from "../../../utils/axisoInstance";
 import { toast } from "react-toastify";
+import { FaGithub } from "react-icons/fa";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -49,10 +50,19 @@ const SignIn = () => {
 
         {/* OAuth Buttons */}
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-3 rounded-lg text-sm">
-          <FaGoogle className="mr-2" /> Continue with Google
+          <div className="w-[70%] flex items-center">
+            <FaGoogle className="mr-2" /> <span>Continue with Google</span>
+          </div>
         </button>
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">
-          <FaFacebookF className="mr-2" /> Continue with Facebook
+          <div className="w-[70%] flex items-center">
+            <FaFacebookF className="mr-2" /> <span>Continue with Facebook</span>
+          </div>
+        </button>
+        <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">
+          <div className="w-[70%] flex items-center">
+            <FaGithub className="mr-2" /> <span>Continue with Github</span>
+          </div>
         </button>
 
         <p className="text-center text-gray-400 text-sm mb-4">or</p>
@@ -85,13 +95,16 @@ const SignIn = () => {
         </button>
 
         {/* Links */}
-        <Link to={'/signup'}>
+        <Link to={"/signup"}>
           <p className="text-center text-gray-400 text-sm mt-4">
-            Don’t have an account? <span className="text-white cursor-pointer">Create an account</span>
+            Don’t have an account?{" "}
+            <span className="text-white cursor-pointer">Create an account</span>
           </p>
         </Link>
 
-        <p className="text-center text-[#CE9FFC] cursor-pointer mt-3">Forgot password?</p>
+        <p className="text-center text-[#CE9FFC] cursor-pointer mt-3">
+          Forgot password?
+        </p>
       </div>
     </div>
   );

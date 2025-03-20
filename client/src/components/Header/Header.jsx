@@ -29,7 +29,7 @@ const Header = () => {
 
         {/* Buttons */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link to={'/signup'}>
+          <Link to={"/signin"}>
             <button className="bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] h-[58px] w-[180px] rounded-[5px]">
               Create Now
             </button>
@@ -71,9 +71,11 @@ const Header = () => {
 
           {/* Buttons */}
           <div className="flex mt-10 items-center space-x-6 px-6">
-            <button className="bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] h-[58px] w-[150px] md:w-[180px] rounded-[5px]">
-              Create Now
-            </button>
+            <Link to={'/signin'}>
+              <button className="bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] h-[58px] w-[150px] md:w-[180px] rounded-[5px]">
+                Create Now
+              </button>
+            </Link>
             <button className="h-[58px] w-[150px] md:w-[180px] border-2 border-[#7367F0] rounded-[5px]">
               Get A Quote
             </button>

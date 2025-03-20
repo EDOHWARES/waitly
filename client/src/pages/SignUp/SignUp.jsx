@@ -5,6 +5,7 @@ import vector3 from "../../assets/images/vector3.png";
 import vector4 from "../../assets/images/vector4.png";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -74,10 +75,19 @@ const SignUp = () => {
 
         {/* OAuth Buttons */}
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-3 rounded-lg text-sm">
-          <FaGoogle className="mr-2" /> Continue with Google
+          <div className="w-[70%] flex items-center">
+            <FaGoogle className="mr-2" /> <span>Continue with Google</span>
+          </div>
         </button>
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">
-          <FaFacebookF className="mr-2" /> Continue with Facebook
+          <div className="w-[70%] flex items-center">
+            <FaFacebookF className="mr-2" /> <span>Continue with Facebook</span>
+          </div>
+        </button>
+        <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">
+          <div className="w-[70%] flex items-center">
+            <FaGithub className="mr-2" /> <span>Continue with Github</span>
+          </div>
         </button>
 
         <p className="text-center text-gray-400 text-sm mb-4">or</p>
@@ -142,7 +152,10 @@ const SignUp = () => {
         {/* Links */}
         <p className="text-center text-gray-400 text-sm mt-4">
           Already have an account?{" "}
-          <span className="text-white cursor-pointer" onClick={() => navigate("/signin")}>
+          <span
+            className="text-white cursor-pointer"
+            onClick={() => navigate("/signin")}
+          >
             Sign In
           </span>
         </p>
