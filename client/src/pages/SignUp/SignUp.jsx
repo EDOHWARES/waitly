@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaGoogle, FaFacebookF } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import axiosInstance from "../../../utils/axisoInstance";
 import vector3 from "../../assets/images/vector3.png";
 import vector4 from "../../assets/images/vector4.png";
@@ -77,11 +77,6 @@ const SignUp = () => {
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-3 rounded-lg text-sm">
           <div className="w-[70%] flex items-center">
             <FaGoogle className="mr-2" /> <span>Continue with Google</span>
-          </div>
-        </button>
-        <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">
-          <div className="w-[70%] flex items-center">
-            <FaFacebookF className="mr-2" /> <span>Continue with Facebook</span>
           </div>
         </button>
         <button className="flex items-center justify-center w-full bg-gray-800 py-3 mb-4 rounded-lg text-sm">

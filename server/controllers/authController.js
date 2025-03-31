@@ -1,27 +1,47 @@
-import User from "../models/User.js";
+import User from "../models/User.js"
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-export const signup = async (req, res) => {
-  const { fullName, email, password, confirmPassword } = req.body;
+import dotenv from 'dotenv';
 
-  if (password !== confirmPassword) {
-    return res.status(400).json({ message: "Passwords do not match" });
-  }
+dotenv.config();
+
+const generateToken = (userId) => {
+  return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
+};
+
+export const signup = async (req, res) => {
+  const { fullName, email, password, confirmPassword, provider, providerId } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
+    let existingUser = await User.findOne({ email });
+
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      // If user exists but from a different provider, return error
+      if (!existingUser[`${provider}Id`]) {
+        return res.status(400).json({ message: "Email is already registered with a different provider." });
+      }
+      return res.status(200).json({ message: "User already exists", token: generateToken(existingUser._id) });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    let newUser;
+    
+    if (provider) {
+      // OAuth Signup (Google, GitHub, etc.)
+      newUser = new User({ fullName, email, [`${provider}Id`]: providerId });
+    } else {
+      // Email/Password Signup
+      if (password !== confirmPassword) {
+        return res.status(400).json({ message: "Passwords do not match" });
+      }
 
-    const newUser = new User({ fullName, email, password: hashedPassword });
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      newUser = new User({ fullName, email, password: hashedPassword });
+    }
 
     await newUser.save();
-    res.status(201).json({ message: "Signup successful" });
+    res.status(201).json({ message: "Signup successful", token: generateToken(newUser._id) });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong", error });
   }
@@ -36,14 +56,17 @@ export const signin = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
+    // Prevent OAuth users from signing in with a password
+    if (!user.password) {
+      return res.status(400).json({ message: "Please sign in using OAuth." });
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ userId: user._id }, "yourSecretKey", { expiresIn: "7d" });
-
-    res.json({ message: "Signin successful", token });
+    res.json({ message: "Signin successful", token: generateToken(user._id) });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong", error });
   }

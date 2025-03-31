@@ -3,15 +3,20 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routers/auth.js";
+import passport from "passport";
+import "./config/passport.js";
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5002;
+
+// Initialize Passport
+app.use(passport.initialize());
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "*" }));
 
 // Default Route
 app.get("/", (req, res) => {
