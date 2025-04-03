@@ -10,11 +10,11 @@ const Header = () => {
   return (
     <div className="text-gray-400 py-6 w-full">
       <div className="flex items-center justify-between px-6 w-full">
-        <Link to={"/"} className="logo w-[20%]">
+        <Link to={"/"} className="logo md:w-[20%]">
           <WaitlyLogo />
         </Link>
 
-        <ul className="flex items-center w-[70%] justify-between">
+        <ul className="flex items-center gap-4 w-[70%] justify-between">
           <li>
             <div className="flex items-center gap-4">
               <div className="relative">
@@ -28,7 +28,7 @@ const Header = () => {
                 <IoSearchOutline className="text-xl" />
                 <input
                   className="w-full bg-transparent border-none outline-none h-full "
-                  placeholder="Search through your waitlist"
+                  placeholder="Search..."
                   type="search"
                   name=""
                   id=""

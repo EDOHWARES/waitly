@@ -15,11 +15,11 @@ const Dashboard = () => {
         <div className="row1 h-fit">
           <Header />
         </div>
-        <div className="row2 mt-5 flex items-start gap-8 px-6">
+        <div className="row2 mt-5 flex items-start gap-4 md:gap-8 px-6">
           <SideBar />
           <Routes>
             <Route path='/' element={<Dash />} />
-            <Route path='/waitlist' element={<Waitlists />} />
+            <Route path='/waitlists' element={<Waitlists />} />
             <Route path='/customers' element={<Customers />} />
             <Route path='/bulk-messaging' element={<BulkMessaging />} />
             <Route path='/reports-and-insights' element={<ReportsAndInsights />}  />

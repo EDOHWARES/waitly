@@ -19,25 +19,25 @@ const SideBar = () => {
   ];
 
   return (
-    <div className="w-[290px] min-h-[674px] py-6 bg-[#161716] text-[14px] border border-[#1F1F1F] text-[#FCFCFC] h-full flex flex-col justify-between items-start duration-500 cursor-pointer">
+    <div className="w-fit md:w-[290px] min-h-[674px] py-6 bg-[#161716] text-[14px] border border-[#1F1F1F] text-[#FCFCFC] h-full flex flex-col justify-between items-start duration-500 cursor-pointer">
       <ul className="space-y-2 w-full">
         {navItems.map((item) => (
           <Link
-            key={item.to}
+            key={item.to} 
             to={item.to}
             className={`flex items-center gap-2 px-6 w-full h-[40px] ${
-              location.pathname === item.to ? "bg-[#2D2E2D]" : "hover:bg-[#2D2E2D]"
+              location.pathname === item.to ? "bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] " : "bg-transparent hover:bg-gradient-to-br from-[#CE9FFC] to-[#7367F0] "
             }`}
           >
             {item.icon}
-            <span>{item.label}</span>
+            <span className="hidden md:flex">{item.label}</span>
           </Link>
         ))}
       </ul>
 
-      <div className="flex items-center gap-2 hover:bg-[#2D2E2D] px-6 w-full h-[40px]">
+      <div className="flex items-center gap-2 hover:bg-[#2D2E2D] font-bold px-6 w-full h-[40px]">
         <VscRobot className="text-xl" />
-        <span>AI Assist</span>
+        <span className="hidden md:flex">AI Assist</span>
       </div>
     </div>
   );
